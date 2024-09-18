@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_contacts",
+  "info": {
+    "singularName": "user-contact",
+    "pluralName": "user-contacts",
+    "displayName": "User Contacts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "regex": "^(\\+[0-9]+)$"
+    },
+    "user_contact_content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "kind": "singleType",
+  "collectionName": "company_infos",
+  "info": {
+    "singularName": "company-info",
+    "pluralName": "company-infos",
+    "displayName": "Company Info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "main_specialization": {
+      "displayName": "Main specialization",
+      "type": "component",
+      "repeatable": true,
+      "component": "company-info.main-specialization",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "basic_info": {
+      "displayName": "Basic information",
+      "type": "component",
+      "repeatable": true,
+      "component": "company-info.basic-information",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "email": {
+      "type": "email",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "about_info": {
+      "displayName": "About Info",
+      "type": "component",
+      "repeatable": false,
+      "component": "company-info.about-info",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    }
+  }
+}

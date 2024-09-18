@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_company_info_about_infos",
+  "info": {
+    "displayName": "About Info",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "translate": {
+          "translate": "copy"
+        }
+      }
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    }
+  }
+}

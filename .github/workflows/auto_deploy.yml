@@ -1,0 +1,43 @@
+name: Remote ssh command (for master branch)
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    name: Build newsletter admin enviroiment development
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_SSH_HOST }}
+          username: ${{ secrets.DEV_USERNAME }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: ${{ secrets.DEV_PORT }}
+          script: |
+            whoami
+            cd ~/KienBQ/deahovina-be
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/thang_github_key
+            git checkout .
+            git pull origin dev
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm install
+            rm -rf .env
+            echo "HOST=0.0.0.0" >> .env
+            echo "PORT=1337" >> .env
+            echo "APP_KEYS=bV9RHhbil+5+J4dA5wwEYw==,xGT9ztAvltpk12UQB/o4sA==,zLq7CpnPdGfZh1SE31xvXQ==,Hx3jynV8RnAahuigiVw2pg==" >> .env
+            echo "API_TOKEN_SALT=IaFEDkab1eVdpCuFskMshQ==" >> .env
+            echo "ADMIN_JWT_SECRET=ft4kzK+Wqwo5ifncQfm7rg==" >> .env
+            echo "TRANSFER_TOKEN_SALT=da8Z7MWr1NBZ2oKsuknwSw==" >> .env
+            echo "DATABASE_CLIENT=sqlite" >> .env
+            echo "DATABASE_FILENAME=.tmp/data.db" >> .env
+            echo "JWT_SECRET=EDLlPbgVIjSeJCD8xjkBDg==" >> .env
+            echo "DEEPL_API_KEY=e0c5f35d-cc72-4a67-ada9-68ae606e9369:fx" >> .env
+            echo "GOOGLE_TRANSLATE_API_KEY=AIzaSyAjjXeXbLP9zbcojaxFOGognrxTFRBVTz8" >> .env
+            echo "GOOGLE_TRANSLATE_PROJECT_ID=logical-air-406703" >> .env
+            npm run build
+            pm2 list
+            pm2 restart BE

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_company_info_main_specializations",
+  "info": {
+    "displayName": "Main specialization"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}

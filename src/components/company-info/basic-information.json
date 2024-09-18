@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_company_info_basic_informations",
+  "info": {
+    "displayName": "Basic information"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "tel": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    }
+  }
+}

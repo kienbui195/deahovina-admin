@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_common_top_banners",
+  "info": {
+    "displayName": "Top Banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "link_on_click": {
+      "type": "text",
+      "default": "#"
+    }
+  }
+}
